@@ -224,8 +224,7 @@ class WebDriver(object):
             else:
                 capabilities.update({'firefox_profile': browser_profile.encoded})
         w3c_caps = _make_w3c_caps(capabilities)
-        parameters = {"capabilities": w3c_caps,
-                      "desiredCapabilities": capabilities}
+        parameters = {"desiredCapabilities": capabilities}
         response = self.execute(Command.NEW_SESSION, parameters)
         if 'sessionId' not in response:
             response = response['value']
